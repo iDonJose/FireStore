@@ -169,8 +169,8 @@ extension Firestore {
 
 	// MARK: - Transaction
 
-	public func runTransaction<T>(transaction: @escaping (_ transaction: Transaction, _ store: Firestore) throws -> T?,
-								  completed: @escaping (T?) -> Void,
+	public func runTransaction<T>(transaction: @escaping (_ transaction: Transaction, _ store: Firestore) throws -> T,
+								  completed: @escaping (T) -> Void,
 								  failed: @escaping (NSError) -> Void) {
 
 		let _transaction: (Transaction, ErrorPointer) -> Any? = { _transaction, error in
@@ -185,7 +185,7 @@ extension Firestore {
 
 		let completion: (Any?, Error?) -> Void = { value, error in
 			if let error = error as NSError? { failed(error) }
-			else { completed(value as! T?) }
+			else { completed(value as! T) }
 		}
 
 		runTransaction(_transaction, completion: completion)
@@ -195,13 +195,13 @@ extension Firestore {
 
 	// MARK: - Batch
 
-	public func batchUpdate(batch: (WriteBatch) -> Void,
+	public func batchUpdate(batch: (_ batch: WriteBatch, _ store: Firestore) -> Void,
 							completed: @escaping () -> Void,
 							failed: @escaping (NSError) -> Void) {
 
 		let _batch = self.batch()
 
-		batch(_batch)
+		batch(_batch, self)
 
 		_batch.commit { error in
 			if let error = error as NSError? { failed(error) }

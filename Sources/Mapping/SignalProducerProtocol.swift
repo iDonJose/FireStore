@@ -13,7 +13,7 @@ import SwiftXtend
 
 extension SignalProducerProtocol where Value == DocumentSnapshot?, Error == NSError {
 
-	public func mapData() -> SignalProducer<[String: Any]?, Error> {
+	public func mapData() -> SignalProducer<(id: String, data: [String: Any]?)?, Error> {
 		return producer.lift { $0.mapData() }
 	}
 
@@ -32,7 +32,7 @@ extension SignalProducerProtocol where Value == DocumentSnapshot?, Error == NSEr
 }
 
 
-extension SignalProducerProtocol where Value == QuerySnapshot, Error == NSError {
+extension SignalProducerProtocol where Value == QuerySnapshot?, Error == NSError {
 
 	public func mapData() -> SignalProducer<[String: [String: Any]], Error> {
 		return producer.lift { $0.mapData() }
@@ -44,8 +44,14 @@ extension SignalProducerProtocol where Value == QuerySnapshot, Error == NSError 
 			return producer.lift { $0.mapArray(of: type) }
 	}
 
+	public func mapSet<T: Identifiable & Decodable>(of type: T.Type)
+		-> SignalProducer<Set<T>, Error> where T.Identifier == String {
+
+			return producer.lift { $0.mapSet(of: type) }
+	}
+
 	public func mapArrayWithMetadata<T: Identifiable & Decodable>(of type: T.Type)
-		-> SignalProducer<(values: [T], metadatas: [SnapshotMetadata], queryMetadata: SnapshotMetadata), Error> where T.Identifier == String {
+		-> SignalProducer<(values: [T], metadatas: [SnapshotMetadata], queryMetadata: SnapshotMetadata?), Error> where T.Identifier == String {
 
 			return producer.lift { $0.mapArrayWithMetadata(of: type) }
 	}

@@ -22,18 +22,25 @@ public struct CollectionPath: PathType {
 
 	public init?(pathComponents components: [String]) {
 
-		guard components.count % 2 == 0 else { return nil }
+		guard components.count % 2 == 1 else { return nil }
 
 		self.components = components
 			.enumerated()
 			.map { pair -> Component in
-				if pair.offset % 2 == 0 { return .collection(pair.element) }
+				if pair.offset % 2 == 1 { return .collection(pair.element) }
 				else {
 					if pair.element == "*" { return .newDocument }
 					else { return .document(pair.element) }
 				}
 			}
 
+	}
+
+	init?(components: [Path.Component]) {
+
+		guard components.count % 2 == 1 else { return nil }
+
+		self.components = components
 	}
 
 
@@ -51,7 +58,16 @@ public struct CollectionPath: PathType {
 		var components = self.components
 		components.append(.newDocument)
 
-		return DocumentPath(pathComponents: components)!
+		return DocumentPath(components: components)!
+	}
+
+	/// Adds a specific document to the path
+	public func document(withId id: String) -> DocumentPath {
+
+		var components = self.components
+		components.append(.document(id))
+
+		return DocumentPath(components: components)!
 	}
 
 }

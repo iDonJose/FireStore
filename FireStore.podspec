@@ -25,5 +25,6 @@ Pod::Spec.new do |s|
     s.frameworks = "Foundation"
     s.dependency "SwiftXtend", "~> 1.0"
 	s.dependency "ReactiveSwift", "~> 4.0"
+    s.dependency "Firebase/Firestore", "~> 5.12.0"
 
 end

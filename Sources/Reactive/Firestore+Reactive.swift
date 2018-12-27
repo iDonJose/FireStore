@@ -103,9 +103,7 @@ extension Reactive where Base: Firestore {
 	/// If no previous data exists, it will create a document with the provided data.
 	public func merge(data: [String: Any],
 					  fields: [String]?,
-					  path: DocumentPath,
-					  completed: @escaping (String) -> Void,
-					  failed: @escaping (NSError) -> Void) -> SignalProducer<String, NSError> {
+					  path: DocumentPath) -> SignalProducer<String, NSError> {
 
 		return SignalProducer { [weak base] observer, _ in
 
@@ -139,9 +137,7 @@ extension Reactive where Base: Firestore {
 
 	// MARK: Delete
 
-	public func delete(path: DocumentPath,
-					   completed: @escaping (String) -> Void,
-					   failed: @escaping (NSError) -> Void) -> SignalProducer<String, NSError> {
+	public func delete(path: DocumentPath) -> SignalProducer<String, NSError> {
 
 		return SignalProducer { [weak base] observer, _ in
 
@@ -157,7 +153,7 @@ extension Reactive where Base: Firestore {
 
 	// MARK: - Transaction
 
-	public func runTransaction<T>(transaction: @escaping (_ transaction: Transaction, _ store: Firestore) throws -> T?) -> SignalProducer<T?, NSError> {
+	public func runTransaction<T>(transaction: @escaping (_ transaction: Transaction, _ store: Firestore) throws -> T) -> SignalProducer<T, NSError> {
 
 		return SignalProducer { [weak base] observer, _ in
 
@@ -172,7 +168,7 @@ extension Reactive where Base: Firestore {
 
 	// MARK: - Batch
 
-	public func batchUpdate(batch: @escaping (WriteBatch) -> Void) -> SignalProducer<(), NSError> {
+	public func batchUpdate(batch: @escaping (_ batch: WriteBatch, _ store: Firestore) -> Void) -> SignalProducer<(), NSError> {
 
 		return SignalProducer { [weak base] observer, _ in
 

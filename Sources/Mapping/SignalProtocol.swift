@@ -14,9 +14,9 @@ import SwiftXtend
 
 extension SignalProtocol where Value == DocumentSnapshot?, Error == NSError {
 
-	public func mapData() -> Signal<[String: Any]?, Error> {
+	public func mapData() -> Signal<(id: String, data: [String: Any]?)?, Error> {
 
-		return signal.map { $0?.data() }
+		return signal.map { $0 != nil ? ($0!.documentID, $0!.data()) : nil }
 	}
 
 	public func map<T: Identifiable & Decodable>(_ type: T.Type)
@@ -84,12 +84,15 @@ extension SignalProtocol where Value == DocumentSnapshot?, Error == NSError {
 }
 
 
-extension SignalProtocol where Value == QuerySnapshot, Error == NSError {
+extension SignalProtocol where Value == QuerySnapshot?, Error == NSError {
 
 	public func mapData() -> Signal<[String: [String: Any]], Error> {
 
 		return signal
 			.map { query in
+
+				guard let query = query
+					else { return [:] }
 
 				let documents = query.documents
 				let keysAndData = documents.map { ($0.documentID, $0.data()) }
@@ -103,6 +106,10 @@ extension SignalProtocol where Value == QuerySnapshot, Error == NSError {
 
 			return signal
 				.attemptMap { query -> Result<[T], Error> in
+
+					guard let query = query
+						else { return .success([]) }
+
 
 					var values = [T]()
 
@@ -131,11 +138,22 @@ extension SignalProtocol where Value == QuerySnapshot, Error == NSError {
 				}
 	}
 
+	public func mapSet<T: Identifiable & Decodable>(of type: T.Type)
+		-> Signal<Set<T>, Error> where T.Identifier == String {
+
+			return mapArray(of: type)
+				.map { $0.toSet }
+	}
+
 	public func mapArrayWithMetadata<T: Identifiable & Decodable>(of type: T.Type)
-		-> Signal<(values: [T], metadatas: [SnapshotMetadata], queryMetadata: SnapshotMetadata), Error> where T.Identifier == String {
+		-> Signal<(values: [T], metadatas: [SnapshotMetadata], queryMetadata: SnapshotMetadata?), Error> where T.Identifier == String {
 
 			return signal
-				.attemptMap { query -> Result<(values: [T], metadatas: [SnapshotMetadata], queryMetadata: SnapshotMetadata), Error> in
+				.attemptMap { query -> Result<(values: [T], metadatas: [SnapshotMetadata], queryMetadata: SnapshotMetadata?), Error> in
+
+					guard let query = query
+						else { return .success(([], [], nil)) }
+
 
 					var values = [T]()
 					var metadatas = [SnapshotMetadata]()
@@ -177,6 +195,10 @@ extension SignalProtocol where Value == QuerySnapshot, Error == NSError {
 
 			return signal
 				.attemptMap { query -> Result<[Change<T>], Error> in
+
+					guard let query = query
+						else { return .success([]) }
+
 
 					var changes = [Change<T>]()
 
