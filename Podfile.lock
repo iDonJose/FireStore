@@ -1,0 +1,143 @@
+PODS:
+  - BoringSSL-GRPC (0.0.2):
+    - BoringSSL-GRPC/Implementation (= 0.0.2)
+    - BoringSSL-GRPC/Interface (= 0.0.2)
+  - BoringSSL-GRPC/Implementation (0.0.2):
+    - BoringSSL-GRPC/Interface (= 0.0.2)
+  - BoringSSL-GRPC/Interface (0.0.2)
+  - Firebase/CoreOnly (5.12.0):
+    - FirebaseCore (= 5.1.7)
+  - Firebase/Firestore (5.12.0):
+    - Firebase/CoreOnly
+    - FirebaseFirestore (= 0.14.0)
+  - FirebaseAuthInterop (1.0.0)
+  - FirebaseCore (5.1.7):
+    - GoogleUtilities/Logger (~> 5.2)
+  - FirebaseFirestore (0.14.0):
+    - FirebaseAuthInterop (~> 1.0)
+    - FirebaseCore (~> 5.1)
+    - FirebaseFirestore/abseil-cpp (= 0.14.0)
+    - "gRPC-C++ (~> 0.0.3)"
+    - gRPC-ProtoRPC (~> 1.0)
+    - leveldb-library (~> 1.20)
+    - nanopb (~> 0.3.8)
+    - Protobuf (~> 3.1)
+  - FirebaseFirestore/abseil-cpp (0.14.0):
+    - FirebaseAuthInterop (~> 1.0)
+    - FirebaseCore (~> 5.1)
+    - "gRPC-C++ (~> 0.0.3)"
+    - gRPC-ProtoRPC (~> 1.0)
+    - leveldb-library (~> 1.20)
+    - nanopb (~> 0.3.8)
+    - Protobuf (~> 3.1)
+  - GoogleUtilities/Environment (5.3.6)
+  - GoogleUtilities/Logger (5.3.6):
+    - GoogleUtilities/Environment
+  - gRPC (1.17.0):
+    - gRPC-RxLibrary (= 1.17.0)
+    - gRPC/Main (= 1.17.0)
+  - "gRPC-C++ (0.0.6)":
+    - "gRPC-C++/Implementation (= 0.0.6)"
+    - "gRPC-C++/Interface (= 0.0.6)"
+  - "gRPC-C++/Implementation (0.0.6)":
+    - "gRPC-C++/Interface (= 0.0.6)"
+    - gRPC-Core (= 1.17.0)
+    - nanopb (~> 0.3)
+  - "gRPC-C++/Interface (0.0.6)"
+  - gRPC-Core (1.17.0):
+    - gRPC-Core/Implementation (= 1.17.0)
+    - gRPC-Core/Interface (= 1.17.0)
+  - gRPC-Core/Implementation (1.17.0):
+    - BoringSSL-GRPC (= 0.0.2)
+    - gRPC-Core/Interface (= 1.17.0)
+    - nanopb (~> 0.3)
+  - gRPC-Core/Interface (1.17.0)
+  - gRPC-ProtoRPC (1.17.0):
+    - gRPC-ProtoRPC/Main (= 1.17.0)
+  - gRPC-ProtoRPC/Main (1.17.0):
+    - gRPC (= 1.17.0)
+    - gRPC-RxLibrary (= 1.17.0)
+    - Protobuf (~> 3.0)
+  - gRPC-RxLibrary (1.17.0)
+  - gRPC/Main (1.17.0):
+    - gRPC-Core (= 1.17.0)
+    - gRPC-RxLibrary (= 1.17.0)
+  - leveldb-library (1.20)
+  - nanopb (0.3.901):
+    - nanopb/decode (= 0.3.901)
+    - nanopb/encode (= 0.3.901)
+  - nanopb/decode (0.3.901)
+  - nanopb/encode (0.3.901)
+  - Nimble (7.3.1)
+  - Protobuf (3.6.1)
+  - Quick (1.3.2)
+  - ReactiveSwift (4.0.0):
+    - Result (~> 4.0)
+  - Result (4.0.0)
+  - SwiftLint (0.29.2)
+  - SwiftXtend (1.0.0):
+    - SwiftXtend/Core (= 1.0.0)
+    - SwiftXtend/UIKit (= 1.0.0)
+  - SwiftXtend/Core (1.0.0)
+  - SwiftXtend/UIKit (1.0.0):
+    - SwiftXtend/Core
+
+DEPENDENCIES:
+  - Firebase/Firestore (~> 5.12.0)
+  - Nimble (~> 7.3)
+  - Quick (~> 1.3)
+  - ReactiveSwift (~> 4.0)
+  - SwiftLint (~> 0.28)
+  - SwiftXtend (from `../../Frameworks/SwiftXtend`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - BoringSSL-GRPC
+    - Firebase
+    - FirebaseAuthInterop
+    - FirebaseCore
+    - FirebaseFirestore
+    - GoogleUtilities
+    - gRPC
+    - "gRPC-C++"
+    - gRPC-Core
+    - gRPC-ProtoRPC
+    - gRPC-RxLibrary
+    - leveldb-library
+    - nanopb
+    - Nimble
+    - Protobuf
+    - Quick
+    - ReactiveSwift
+    - Result
+    - SwiftLint
+
+EXTERNAL SOURCES:
+  SwiftXtend:
+    :path: "../../Frameworks/SwiftXtend"
+
+SPEC CHECKSUMS:
+  BoringSSL-GRPC: 2a230d9cd93e7ce39916044f645cebb31f37dde6
+  Firebase: 9190018e296139d938b99521cde0c15a6e8d2946
+  FirebaseAuthInterop: 0ffa57668be100582bb7643d4fcb7615496c41fc
+  FirebaseCore: 027d350adc039aa5483357c6f56556f117c5170e
+  FirebaseFirestore: 6dc97a9685c421767cc96bf644fc963166cddbe7
+  GoogleUtilities: 95996bea7c7d9b8fb811b7507669a4a8762f80c7
+  gRPC: 72b71666056dcb12235b5238f0ff5948fd60321a
+  "gRPC-C++": e76441995900ac90e9bd98644ab4733f12521edf
+  gRPC-Core: 4028031ed2c5267cca0d846c876d8046b1ecb9b6
+  gRPC-ProtoRPC: 94e90774dd0dc089dece93ec22384d8383988f3f
+  gRPC-RxLibrary: f2873a17e8133f66d8ce972f8805aa7a518ae974
+  leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
+  nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
+  Nimble: 04f732da099ea4d153122aec8c2a88fd0c7219ae
+  Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
+  Quick: 2623cb30d7a7f41ca62f684f679586558f483d46
+  ReactiveSwift: a2bb9ace428a109e9c0209615645d9d286c8c433
+  Result: 7645bb3f50c2ce726dd0ff2fa7b6f42bbe6c3713
+  SwiftLint: 47df60bdea6e7e902b193b6596db8683aafd86a3
+  SwiftXtend: 2c01b6fd7c36500f8752d4f535830b9120ba8ee2
+
+PODFILE CHECKSUM: eae5e4bad3571545d84fc9545f461d22f39eeee8
+
+COCOAPODS: 1.5.3

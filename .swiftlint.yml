@@ -1,0 +1,56 @@
+# All rules : https://github.com/realm/SwiftLint/tree/master/Source/SwiftLintFramework/Rules
+
+included:
+  - Sources
+  - Tests
+excluded:
+  - Pods
+disabled_rules:
+  - attributes
+  - cyclomatic_complexity
+  - file_header
+  - file_length
+  - function_body_length
+  - function_parameter_count
+  - identifier_name
+  - large_tuple
+  - line_length
+  - number_separator
+  - nesting
+  - statement_position
+  - type_name
+  - vertical_parameter_alignment
+opt_in_rules:
+  - attributes
+  - closure_end_indentation
+  - closure_parameter_position
+  - closure_spacing
+  - empty_count
+  - explicit_init
+  - first_where
+  - nimble_operator
+  - number_separator
+  - object_literal
+  - operator_usage_whitespace
+  - overridden_super_call
+  - prohibited_super_call
+  - redundant_nil_coalescing
+  - sorted_imports
+  - trailing_comma
+  - weak_delegate
+
+file_header:
+  required_pattern: |
+                    \/\/
+                    \/\/  .*?\.swift
+                    \/\/  Pixel
+                    \/\/
+                    \/\/  Created by .*? on \d{1,2}\/\d{1,2}\/\d{2}\.
+                    \/\/  Copyright © \d{4} José Donor\. All rights reserved\.
+                    \/\/
+
+vertical_whitespace:
+  max_empty_lines: 3
+
+type_name:
+  min_length: 1
