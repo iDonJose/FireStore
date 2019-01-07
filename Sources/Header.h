@@ -6,7 +6,6 @@
 //  Copyright © 2018 iDonJose. All rights reserved.
 //
 
-//#import <UIKit/UIKit.h>
 
 //! Project version number for FireStore.
 FOUNDATION_EXPORT double FireStoreVersionNumber;
