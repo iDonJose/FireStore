@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
     s.ios.deployment_target = "8.0"
 
     s.source_files = "Sources/**/*.h"
-    s.source       = { :http => "https://github.com/iDonJose/FireStore/archive/1.0.0.zip" }
+    s.source       = { :http => "https://github.com/iDonJose/FireStore/releases/download/1.0.0/FireStore.zip" }
 
     s.ios.vendored_frameworks = "FireStore.framework"
 
