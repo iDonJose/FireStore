@@ -20,11 +20,16 @@ Pod::Spec.new do |s|
 
     s.ios.deployment_target = "8.0"
 
-    s.source_files  = "Sources/**/*.{h,swift}"
+    s.source_files = "Sources/**/*.h"
+    s.source       = { :http => "https://github.com/iDonJose/FireStore/archive/1.0.0.zip" }
 
-    s.frameworks = "Foundation"
-    s.dependency "SwiftXtend", "~> 1.0"
-	s.dependency "ReactiveSwift", "~> 4.0"
-    s.dependency "Firebase/Firestore", "~> 5.12.0"
+    s.ios.vendored_frameworks = "FireStore.framework"
+
+    #s.source_files  = "Sources/**/*.{h,swift}"
+
+    #s.frameworks = "Foundation"
+    #s.dependency "SwiftXtend", "~> 1.0"
+	#s.dependency "ReactiveSwift", "~> 4.0"
+    #s.dependency "Firebase/Firestore", "~> 5.12.0"
 
 end
