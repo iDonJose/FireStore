@@ -27,7 +27,7 @@ public struct DocumentPath: PathType {
 		self.components = components
 			.enumerated()
 			.map { pair -> Component in
-				if pair.offset % 2 == 1 { return .collection(pair.element) }
+				if pair.offset % 2 == 0 { return .collection(pair.element) }
 				else {
 					if pair.element == "*" { return .newDocument }
 					else { return .document(pair.element) }
