@@ -6,6 +6,7 @@
 //  Copyright © 2018 iDonJose. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
 
 //! Project version number for FireStore.
 FOUNDATION_EXPORT double FireStoreVersionNumber;
