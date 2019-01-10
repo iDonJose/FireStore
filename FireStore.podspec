@@ -17,20 +17,13 @@ Pod::Spec.new do |s|
 
     s.author       = { "iDonJose" => "donor.develop@gmail.com" }
 
-
     s.ios.deployment_target = "8.0"
 
-    s.source_files = "Sources/**/*.h"
-    #s.source       = { :http => "https://drive.google.com/uc?export=download&id=1dvWmnogIbs7aGGksQjHLltsrjniTBoWy" }
+    s.source_files  = "Sources/**/*.{h,swift}"
 
-    s.static_framework = true
-    s.ios.vendored_frameworks = "Products/FireStore.framework"
-
-    #s.source_files  = "Sources/**/*.{h,swift}"
-
-    #s.frameworks = "Foundation"
-    #s.dependency "SwiftXtend", "~> 1.0"
-	#s.dependency "ReactiveSwift", "~> 4.0"
-    #s.dependency "Firebase/Firestore", "~> 5.12.0"
+    s.frameworks = "Foundation"
+    s.dependency "SwiftXtend", "~> 1.0"
+	s.dependency "ReactiveSwift", "~> 4.0"
+	s.dependency "Firebase/Firestore", "~> 5.12.0"
 
 end
