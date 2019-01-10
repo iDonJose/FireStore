@@ -493,7 +493,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.iDonJose.FireStore-iOS";
 				PRODUCT_NAME = FireStore;
 				SDKROOT = iphoneos;
-				SKIP_INSTALL = NO;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -518,7 +517,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.iDonJose.FireStore-iOS";
 				PRODUCT_NAME = FireStore;
 				SDKROOT = iphoneos;
-				SKIP_INSTALL = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
