@@ -1,4 +1,0 @@
-framework module FireStore {
-    header "FireStore-Swift.h"
-    requires objc
-}
