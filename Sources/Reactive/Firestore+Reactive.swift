@@ -39,7 +39,7 @@ extension Reactive where Base: Firestore {
 
 			let listener = base.observe(path: path,
 										includeMetadataChanges: includeMetadataChanges,
-										completed: { observer.send(value: $0); observer.sendCompleted() },
+										completed: { observer.send(value: $0) },
 										failed: { observer.send(error: $0) })
 
 			lifetime.observeEnded { listener.remove() }
@@ -74,7 +74,7 @@ extension Reactive where Base: Firestore {
 			let listener = base.observe(path: path,
 										query: query,
 										includeMetadataChanges: includeMetadataChanges,
-										completed: { observer.send(value: $0); observer.sendCompleted() },
+										completed: { observer.send(value: $0) },
 										failed: { observer.send(error: $0) })
 
 			lifetime.observeEnded { listener.remove() }
