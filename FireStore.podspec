@@ -19,11 +19,13 @@ Pod::Spec.new do |s|
 
     s.ios.deployment_target = "8.0"
 
+	s.static_framework = true
+
     s.source_files  = "Sources/**/*.{h,swift}"
 
     s.frameworks = "Foundation"
     s.dependency "SwiftXtend", "~> 1.0"
 	s.dependency "ReactiveSwift", "~> 4.0"
-	s.dependency "Firebase/Firestore", "~> 5.12.0"
+	s.dependency "FirebaseFirestore", "~> 0.14"
 
 end
