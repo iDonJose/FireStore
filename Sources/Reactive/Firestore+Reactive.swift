@@ -180,4 +180,22 @@ extension Reactive where Base: Firestore {
 		}
 	}
 
+	public func batchDelete(path: CollectionPath,
+							query: ((CollectionReference) -> Query)?,
+							batchSize: Int,
+							source: FirestoreSource) -> SignalProducer<(), NSError> {
+
+		return SignalProducer { [weak base] observer, _ in
+
+			guard let base = base else { observer.sendCompleted(); return }
+
+			base.batchDelete(path: path,
+							 query: query,
+							 batchSize: batchSize,
+							 source: source,
+							 completed: { observer.send(value: ()); observer.sendCompleted() },
+							 failed: { observer.send(error: $0) })
+		}
+	}
+
 }

@@ -210,4 +210,50 @@ extension Firestore {
 
 	}
 
+	public func batchDelete(path: CollectionPath,
+							query: ((CollectionReference) -> Query)?,
+							batchSize: Int,
+							source: FirestoreSource,
+							completed: @escaping () -> Void,
+							failed: @escaping (NSError) -> Void) {
+
+		let reference = path.reference(with: self)
+		let query = query ?? { $0.order(by: .documentID()) }
+
+		let batchQuery = query(reference)
+			.limit(to: batchSize.min(1))
+
+
+		func batchDelete() {
+			batchQuery.getDocuments(source: source) { snapshot, error in
+
+				if let error = error as NSError? {
+					failed(error)
+					return
+				}
+
+				guard
+					let snapshot = snapshot,
+					!snapshot.isEmpty
+					else { completed(); return }
+
+
+				let batch = self.batch()
+
+				snapshot.documents
+					.forEach { batch.deleteDocument($0.reference) }
+
+				batch.commit { error in
+					if let error = error as NSError? { failed(error) }
+					else if snapshot.isEmpty { completed() }
+					else { batchDelete() }
+				}
+
+			}
+		}
+
+		batchDelete()
+
+	}
+
 }
