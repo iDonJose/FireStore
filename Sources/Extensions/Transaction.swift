@@ -20,7 +20,7 @@ extension Transaction {
 		let reference = path.reference(with: store)
 
 		do { return .init(try getDocument(reference)) }
-		catch let error as NSError { return.init(error) }
+		catch let error as NSError { return .init(error) }
 
 	}
 
