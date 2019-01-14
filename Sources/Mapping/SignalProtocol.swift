@@ -25,21 +25,8 @@ extension SignalProtocol where Value == DocumentSnapshot?, Error == NSError {
 			return signal
 				.attemptMap { document -> Result<T?, Error> in
 
-					guard
-						let document = document,
-						document.exists
-						else { return .success(nil) }
-
-
 					do {
-						let data = try JSONSerialization.data(withJSONObject: document.data() as Any)
-
-						let decoder = JSONDecoder()
-						decoder.dateDecodingStrategy = .millisecondsSince1970
-
-						var value = try decoder.decode(type, from: data)
-						value.id = document.documentID
-
+						let value = try document?.map(type)
 						return .success(value)
 					}
 					catch let error as NSError {
@@ -55,24 +42,9 @@ extension SignalProtocol where Value == DocumentSnapshot?, Error == NSError {
 			return signal
 				.attemptMap { document -> Result<(value: T, metadata: SnapshotMetadata)?, Error> in
 
-					guard
-						let document = document,
-						document.exists
-						else { return .success(nil) }
-
-
 					do {
-						let data = try JSONSerialization.data(withJSONObject: document.data() as Any)
-
-						let decoder = JSONDecoder()
-						decoder.dateDecodingStrategy = .millisecondsSince1970
-
-						var value = try decoder.decode(type, from: data)
-						value.id = document.documentID
-
-						let metadata = document.metadata
-
-						return .success((value, metadata))
+						let value = try document?.mapWithMetadata(type)
+						return .success(value)
 					}
 					catch let error as NSError {
 						return .failure(error)

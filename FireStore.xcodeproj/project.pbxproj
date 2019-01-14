@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		828738DB21ECAD000011AAC5 /* DocumentSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828738DA21ECACFF0011AAC5 /* DocumentSnapshot.swift */; };
 		82879D7621D3F382005ACF38 /* Firestore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82879D7521D3F382005ACF38 /* Firestore.swift */; };
 		82879D7D21D40951005ACF38 /* DocumentPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82879D7C21D40951005ACF38 /* DocumentPath.swift */; };
 		82879D8021D40B7D005ACF38 /* PathType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82879D7F21D40B7D005ACF38 /* PathType.swift */; };
@@ -53,6 +54,7 @@
 		01AD63A147287CC9884CC38C /* Pods-FireStore-Tests-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FireStore-Tests-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-FireStore-Tests-iOS/Pods-FireStore-Tests-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		67EDD0A10C72F55AB9817266 /* Pods_FireStore_Tests_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FireStore_Tests_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D04542613B7E9519F726B61 /* Pods_FireStore_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FireStore_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		828738DA21ECACFF0011AAC5 /* DocumentSnapshot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentSnapshot.swift; sourceTree = "<group>"; };
 		82879D7521D3F382005ACF38 /* Firestore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firestore.swift; sourceTree = "<group>"; };
 		82879D7C21D40951005ACF38 /* DocumentPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentPath.swift; sourceTree = "<group>"; };
 		82879D7F21D40B7D005ACF38 /* PathType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathType.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 		82879D8C21D43FF7005ACF38 /* Mapping */ = {
 			isa = PBXGroup;
 			children = (
+				828738DA21ECACFF0011AAC5 /* DocumentSnapshot.swift */,
 				82879D8D21D44004005ACF38 /* SignalProtocol.swift */,
 				82879D9121D44CC6005ACF38 /* SignalProducerProtocol.swift */,
 			);
@@ -425,6 +428,7 @@
 				82879D8E21D44004005ACF38 /* SignalProtocol.swift in Sources */,
 				82879D8B21D4391A005ACF38 /* Firestore+Reactive.swift in Sources */,
 				82879D7621D3F382005ACF38 /* Firestore.swift in Sources */,
+				828738DB21ECAD000011AAC5 /* DocumentSnapshot.swift in Sources */,
 				82879D8021D40B7D005ACF38 /* PathType.swift in Sources */,
 				82879D8421D41223005ACF38 /* Field.swift in Sources */,
 			);
