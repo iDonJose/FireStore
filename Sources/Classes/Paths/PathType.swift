@@ -31,10 +31,11 @@ public struct Path {
 
 		var value: String {
 			switch self {
+            case .newDocument:
+                return "*"
 			case let .document(value),
 				 let .collection(value):
 				return value
-			default: return ""
 			}
 		}
 
