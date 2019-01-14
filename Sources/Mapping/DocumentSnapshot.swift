@@ -46,9 +46,7 @@ extension DocumentSnapshot {
 			var value = try decoder.decode(type, from: data)
 			value.id = documentID
 
-			let metadata = document.metadata
-
-			return (value, metadata)
+            return (value, metadata)
 		}
 		catch let error as NSError {
 			throw error
