@@ -25,13 +25,13 @@ extension SignalProtocol where Value == DocumentSnapshot?, Error == NSError {
 			return signal
 				.attemptMap { document -> Result<T?, Error> in
 
-					do {
-						let value = try document?.map(type)
-						return .success(value)
-					}
-					catch let error as NSError {
-						return .failure(error)
-					}
+                    guard let document = document
+                        else { return .success(nil) }
+
+                    let either = document.map(type)
+
+                    if let value = either.a { return .success(value) }
+                    else { return .failure(either.b!) }
 
 				}
 	}
@@ -42,14 +42,14 @@ extension SignalProtocol where Value == DocumentSnapshot?, Error == NSError {
 			return signal
 				.attemptMap { document -> Result<(value: T, metadata: SnapshotMetadata)?, Error> in
 
-					do {
-						let value = try document?.mapWithMetadata(type)
-						return .success(value)
-					}
-					catch let error as NSError {
-						return .failure(error)
-					}
+                    guard let document = document
+                        else { return .success(nil) }
 
+                    let either = document.mapWithMetadata(type)
+
+                    if let value = either.a { return .success(value) }
+                    else { return .failure(either.b!) }
+                    
 				}
 	}
 

@@ -12,9 +12,9 @@ import SwiftXtend
 
 extension DocumentSnapshot {
 
-	public func map<T: Identifiable & Decodable>(_ type: T.Type) throws -> T? where T.Identifier == String {
+	public func map<T: Identifiable & Decodable>(_ type: T.Type) -> Either<T?, NSError> where T.Identifier == String {
 
-		guard exists else { return nil }
+		guard exists else { return .init(nil) }
 
 		do {
 			let data = try JSONSerialization.data(withJSONObject: self.data() as Any)
@@ -25,17 +25,17 @@ extension DocumentSnapshot {
 			var value = try decoder.decode(type, from: data)
 			value.id = documentID
 
-			return value
+			return .init(value)
 		}
 		catch let error as NSError {
-			throw error
+			return .init(error)
 		}
 
 	}
 
-	public func mapWithMetadata<T: Identifiable & Decodable>(_ type: T.Type) throws -> (value: T, metadata: SnapshotMetadata)? where T.Identifier == String {
+	public func mapWithMetadata<T: Identifiable & Decodable>(_ type: T.Type) -> Either<(value: T, metadata: SnapshotMetadata)?, NSError> where T.Identifier == String {
 
-		guard exists else { return nil }
+		guard exists else { return .init(nil) }
 
 		do {
 			let data = try JSONSerialization.data(withJSONObject: self.data() as Any)
@@ -46,10 +46,10 @@ extension DocumentSnapshot {
 			var value = try decoder.decode(type, from: data)
 			value.id = documentID
 
-            return (value, metadata)
+            return .init((value, metadata))
 		}
 		catch let error as NSError {
-			throw error
+            return .init(error)
 		}
 
 	}
