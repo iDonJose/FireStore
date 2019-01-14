@@ -168,22 +168,22 @@ extension Reactive where Base: Firestore {
 
 	// MARK: - Batch
 
-	public func batchUpdate(batch: @escaping (_ batch: WriteBatch, _ store: Firestore) -> Void) -> SignalProducer<(), NSError> {
+	public func batchUpdate<T>(batch: @escaping (_ batch: WriteBatch, _ store: Firestore) throws -> T) -> SignalProducer<T, NSError> {
 
 		return SignalProducer { [weak base] observer, _ in
 
 			guard let base = base else { observer.sendCompleted(); return }
 
 			base.batchUpdate(batch: batch,
-							 completed: { observer.send(value: ()); observer.sendCompleted() },
+							 completed: { observer.send(value: $0); observer.sendCompleted() },
 							 failed: { observer.send(error: $0) })
 		}
 	}
 
-	public func batchDelete(path: CollectionPath,
-							query: ((CollectionReference) -> Query)?,
-							batchSize: Int,
-							source: FirestoreSource) -> SignalProducer<(), NSError> {
+    public func batchDelete(path: CollectionPath,
+                            query: ((CollectionReference) -> Query)?,
+                            batchSize: Int,
+                            source: FirestoreSource) -> SignalProducer<[String], NSError> {
 
 		return SignalProducer { [weak base] observer, _ in
 
@@ -193,7 +193,7 @@ extension Reactive where Base: Firestore {
 							 query: query,
 							 batchSize: batchSize,
 							 source: source,
-							 completed: { observer.send(value: ()); observer.sendCompleted() },
+							 completed: { observer.send(value: $0); observer.sendCompleted() },
 							 failed: { observer.send(error: $0) })
 		}
 	}

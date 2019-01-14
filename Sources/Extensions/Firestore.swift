@@ -195,27 +195,31 @@ extension Firestore {
 
 	// MARK: - Batch
 
-	public func batchUpdate(batch: (_ batch: WriteBatch, _ store: Firestore) -> Void,
-							completed: @escaping () -> Void,
-							failed: @escaping (NSError) -> Void) {
+	public func batchUpdate<T>(batch: (_ batch: WriteBatch, _ store: Firestore) throws -> T,
+                               completed: @escaping (T) -> Void,
+                               failed: @escaping (NSError) -> Void) {
 
 		let _batch = self.batch()
 
-		batch(_batch, self)
+        do {
+            let result = try batch(_batch, self)
 
-		_batch.commit { error in
-			if let error = error as NSError? { failed(error) }
-			else { completed() }
-		}
-
+            _batch.commit { error in
+                if let error = error as NSError? { failed(error) }
+                else { completed(result) }
+            }
+        }
+        catch let error as NSError {
+            failed(error)
+        }
 	}
 
 	public func batchDelete(path: CollectionPath,
-							query: ((CollectionReference) -> Query)?,
-							batchSize: Int,
-							source: FirestoreSource,
-							completed: @escaping () -> Void,
-							failed: @escaping (NSError) -> Void) {
+                            query: ((CollectionReference) -> Query)?,
+                            batchSize: Int,
+                            source: FirestoreSource,
+                            completed: @escaping ([String]) -> Void,
+                            failed: @escaping (NSError) -> Void) {
 
 		let reference = path.reference(with: self)
 		let query = query ?? { $0.order(by: .documentID()) }
@@ -223,6 +227,8 @@ extension Firestore {
 		let batchQuery = query(reference)
 			.limit(to: batchSize.min(1))
 
+
+        var deletedDocuments = [String]()
 
 		func batchDelete() {
 			batchQuery.getDocuments(source: source) { snapshot, error in
@@ -235,17 +241,19 @@ extension Firestore {
 				guard
 					let snapshot = snapshot,
 					!snapshot.isEmpty
-					else { completed(); return }
+					else { completed(deletedDocuments); return }
 
 
 				let batch = self.batch()
 
-				snapshot.documents
-					.forEach { batch.deleteDocument($0.reference) }
+                let references = snapshot.documents.map { $0.reference }
+                deletedDocuments.append(contentsOf: references.map { $0.documentID })
+
+				references.forEach { batch.deleteDocument($0) }
 
 				batch.commit { error in
 					if let error = error as NSError? { failed(error) }
-					else if snapshot.isEmpty { completed() }
+					else if snapshot.isEmpty { completed(deletedDocuments) }
 					else { batchDelete() }
 				}
 
