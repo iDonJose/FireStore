@@ -70,4 +70,9 @@ public struct CollectionPath: PathType {
 		return DocumentPath(components: components)!
 	}
 
+
+	public static func + (lhs: CollectionPath, rhs: String) -> DocumentPath {
+		return lhs.document(withId: rhs)
+	}
+
 }

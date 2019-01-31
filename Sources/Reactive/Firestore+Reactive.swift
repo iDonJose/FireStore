@@ -5,6 +5,7 @@
 //  Created by José Donor on 26/12/2018.
 //
 
+#if USE_REACTIVESWIFT
 import FirebaseFirestore
 import ReactiveSwift
 
@@ -199,3 +200,4 @@ extension Reactive where Base: Firestore {
 	}
 
 }
+#endif

@@ -5,6 +5,7 @@
 //  Created by José Donor on 27/12/2018.
 //
 
+#if USE_REACTIVESWIFT
 import FirebaseFirestore
 import ReactiveSwift
 import SwiftXtend
@@ -63,3 +64,4 @@ extension SignalProducerProtocol where Value == QuerySnapshot?, Error == NSError
 	}
 
 }
+#endif

@@ -14,6 +14,6 @@ FOUNDATION_EXPORT double FireStoreVersionNumber;
 //! Project version string for FireStore.
 FOUNDATION_EXPORT const unsigned char FireStoreVersionString[];
 
-// In this header, you should import all the public headers of your framework using statements like #import <<Framework>/PublicHeader.h>
+// In this header, you should import all the public headers of your framework using statements like #import <FireStore/PublicHeader.h>
 
 

@@ -5,6 +5,7 @@
 //  Created by José Donor on 27/12/2018.
 //
 
+#if USE_REACTIVESWIFT
 import FirebaseFirestore
 import ReactiveSwift
 import Result
@@ -48,8 +49,8 @@ extension SignalProtocol where Value == DocumentSnapshot?, Error == NSError {
                     let either = document.mapWithMetadata(type)
 
                     if let value = either.a { return .success(value) }
-                    else { return .failure(either.b!) }
-                    
+					else { return .failure(either.b!) }
+
 				}
 	}
 
@@ -193,3 +194,4 @@ extension SignalProtocol where Value == QuerySnapshot?, Error == NSError {
 	}
 
 }
+#endif
