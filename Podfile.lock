@@ -5,11 +5,23 @@ PODS:
   - BoringSSL-GRPC/Implementation (0.0.2):
     - BoringSSL-GRPC/Interface (= 0.0.2)
   - BoringSSL-GRPC/Interface (0.0.2)
+  - Firebase/Core (5.12.0):
+    - Firebase/CoreOnly
+    - FirebaseAnalytics (= 5.3.0)
   - Firebase/CoreOnly (5.12.0):
     - FirebaseCore (= 5.1.7)
   - Firebase/Firestore (5.12.0):
     - Firebase/CoreOnly
     - FirebaseFirestore (= 0.14.0)
+  - FirebaseAnalytics (5.3.0):
+    - FirebaseCore (~> 5.1)
+    - FirebaseInstanceID (~> 3.3)
+    - GoogleAppMeasurement (~> 5.3)
+    - GoogleUtilities/AppDelegateSwizzler (~> 5.2)
+    - GoogleUtilities/MethodSwizzler (~> 5.2)
+    - GoogleUtilities/Network (~> 5.2)
+    - "GoogleUtilities/NSData+zlib (~> 5.2)"
+    - nanopb (~> 0.3)
   - FirebaseAuthInterop (1.0.0)
   - FirebaseCore (5.1.7):
     - GoogleUtilities/Logger (~> 5.2)
@@ -30,9 +42,34 @@ PODS:
     - leveldb-library (~> 1.20)
     - nanopb (~> 0.3.8)
     - Protobuf (~> 3.1)
+  - FirebaseInstanceID (3.3.0):
+    - FirebaseCore (~> 5.1)
+    - GoogleUtilities/Environment (~> 5.3)
+    - GoogleUtilities/UserDefaults (~> 5.3)
+  - GoogleAppMeasurement (5.3.0):
+    - GoogleUtilities/AppDelegateSwizzler (~> 5.2)
+    - GoogleUtilities/MethodSwizzler (~> 5.2)
+    - GoogleUtilities/Network (~> 5.2)
+    - "GoogleUtilities/NSData+zlib (~> 5.2)"
+    - nanopb (~> 0.3)
+  - GoogleUtilities/AppDelegateSwizzler (5.3.6):
+    - GoogleUtilities/Environment
+    - GoogleUtilities/Logger
+    - GoogleUtilities/Network
   - GoogleUtilities/Environment (5.3.6)
   - GoogleUtilities/Logger (5.3.6):
     - GoogleUtilities/Environment
+  - GoogleUtilities/MethodSwizzler (5.3.6):
+    - GoogleUtilities/Logger
+  - GoogleUtilities/Network (5.3.6):
+    - GoogleUtilities/Logger
+    - "GoogleUtilities/NSData+zlib"
+    - GoogleUtilities/Reachability
+  - "GoogleUtilities/NSData+zlib (5.3.6)"
+  - GoogleUtilities/Reachability (5.3.6):
+    - GoogleUtilities/Logger
+  - GoogleUtilities/UserDefaults (5.3.6):
+    - GoogleUtilities/Logger
   - gRPC (1.17.0):
     - gRPC-RxLibrary (= 1.17.0)
     - gRPC/Main (= 1.17.0)
@@ -75,28 +112,33 @@ PODS:
     - Result (~> 4.0)
   - Result (4.0.0)
   - SwiftLint (0.29.2)
-  - SwiftXtend (1.0.0):
-    - SwiftXtend/Core (= 1.0.0)
-    - SwiftXtend/UIKit (= 1.0.0)
-  - SwiftXtend/Core (1.0.0)
-  - SwiftXtend/UIKit (1.0.0):
+  - SwiftXtend (1.1.0):
+    - SwiftXtend/Core (= 1.1.0)
+    - SwiftXtend/UIKit (= 1.1.0)
+  - SwiftXtend/Core (1.1.0)
+  - SwiftXtend/UIKit (1.1.0):
     - SwiftXtend/Core
 
 DEPENDENCIES:
+  - Firebase/Core (~> 5.12.0)
   - Firebase/Firestore (~> 5.12.0)
+  - GoogleAppMeasurement (~> 5.3.0)
   - Nimble (~> 7.3)
   - Quick (~> 1.3)
   - ReactiveSwift (~> 4.0)
   - SwiftLint (~> 0.28)
-  - SwiftXtend (from `../../Frameworks/SwiftXtend`)
+  - SwiftXtend (~> 1.1)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - BoringSSL-GRPC
     - Firebase
+    - FirebaseAnalytics
     - FirebaseAuthInterop
     - FirebaseCore
     - FirebaseFirestore
+    - FirebaseInstanceID
+    - GoogleAppMeasurement
     - GoogleUtilities
     - gRPC
     - "gRPC-C++"
@@ -111,17 +153,17 @@ SPEC REPOS:
     - ReactiveSwift
     - Result
     - SwiftLint
-
-EXTERNAL SOURCES:
-  SwiftXtend:
-    :path: "../../Frameworks/SwiftXtend"
+    - SwiftXtend
 
 SPEC CHECKSUMS:
   BoringSSL-GRPC: 2a230d9cd93e7ce39916044f645cebb31f37dde6
   Firebase: 9190018e296139d938b99521cde0c15a6e8d2946
+  FirebaseAnalytics: 63202d2665de4e6adcbdce189135255d8b5962ba
   FirebaseAuthInterop: 0ffa57668be100582bb7643d4fcb7615496c41fc
   FirebaseCore: 027d350adc039aa5483357c6f56556f117c5170e
   FirebaseFirestore: 6dc97a9685c421767cc96bf644fc963166cddbe7
+  FirebaseInstanceID: e2fa4cb35ef5558c200f7f0ad8a53e212215f93e
+  GoogleAppMeasurement: 5029d78f2b438bd30ffb44e6c558b57c21622727
   GoogleUtilities: 95996bea7c7d9b8fb811b7507669a4a8762f80c7
   gRPC: 72b71666056dcb12235b5238f0ff5948fd60321a
   "gRPC-C++": e76441995900ac90e9bd98644ab4733f12521edf
@@ -136,8 +178,8 @@ SPEC CHECKSUMS:
   ReactiveSwift: a2bb9ace428a109e9c0209615645d9d286c8c433
   Result: 7645bb3f50c2ce726dd0ff2fa7b6f42bbe6c3713
   SwiftLint: 47df60bdea6e7e902b193b6596db8683aafd86a3
-  SwiftXtend: 2c01b6fd7c36500f8752d4f535830b9120ba8ee2
+  SwiftXtend: 473a0a8f7c7017246b68164c81d308a135ce39db
 
-PODFILE CHECKSUM: 0ab421e7d145bebdaf5d5cc074b64b16999db7f7
+PODFILE CHECKSUM: a56d29cecd068dab085f912fb5ae3998dadf3089
 
 COCOAPODS: 1.5.3

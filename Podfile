@@ -6,13 +6,16 @@ inhibit_all_warnings!
 
 
 def pods
-    # Firebase
-    ## Issue with higher versions from 5.12, plus needs to be build with legacy system
-    pod 'Firebase/Firestore', '~> 5.12.0'
+	# Firebase
+	## Issue with higher versions from 5.12, plus needs to be build with legacy system
+	pod 'Firebase/Core', '~> 5.12.0'
+	pod 'Firebase/Firestore', '~> 5.12.0'
+	# Firebase (fix)
+	pod 'GoogleAppMeasurement', '~> 5.3.0'
 	# Reactive
 	pod 'ReactiveSwift', '~> 4.0'
 	# Swift
-	pod 'SwiftXtend', :path => '../../Frameworks/SwiftXtend'
+	pod 'SwiftXtend', '~> 1.1'
 	# Linting
 	pod 'SwiftLint', '~> 0.28'
 end
