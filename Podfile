@@ -31,18 +31,16 @@ end
 
 target 'FireStore-iOS' do
   platform :ios, '8.0'
-
   pods
-
-  target 'FireStore-Tests-iOS' do
-    inherit! :search_paths
-    
-    test_pods
-
-  end
-
 end
 
+target 'FireStore-Tests-iOS' do
+	platform :ios, '8.0'
+
+	pod 'FireStore', :path => '../FireStore'
+	pods
+	test_pods
+end
 
 
 post_install do |installer|
