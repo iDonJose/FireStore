@@ -5,6 +5,8 @@
 //  Created by José Donor on 02/02/2019.
 //
 
+// swiftlint:disable force_try
+
 import FirebaseFirestore
 @testable import FireStore
 import Nimble
@@ -74,7 +76,7 @@ class SignalProducerProtocol_Spec: QuickSpec {
 									mapSucceeded = try! value.id == id
 										&& value.data == Car.default.data()
 								}
-						}
+							}
 
 						expect(mapSucceeded).toEventually(beTrue())
 

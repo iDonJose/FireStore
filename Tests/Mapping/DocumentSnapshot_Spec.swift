@@ -5,6 +5,8 @@
 //  Created by José Donor on 02/02/2019.
 //
 
+// swiftlint:disable force_try
+
 import FirebaseFirestore
 @testable import FireStore
 import Nimble

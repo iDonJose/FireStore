@@ -5,6 +5,8 @@
 //  Created by José Donor on 02/02/2019.
 //
 
+// swiftlint:disable type_body_length
+
 import FirebaseCore
 import FirebaseFirestore
 @testable import FireStore
@@ -151,8 +153,9 @@ class Firestore_Reactive_Spec: QuickSpec {
 
 					let areEqual: ([[String: Any]], [[String: Any]]) -> Bool = { lhs, rhs in
 						guard lhs.count == rhs.count else { return false }
-						for (i, element) in lhs.enumerated() {
-							if element != rhs[i] { return false }
+						for (i, element) in lhs.enumerated()
+							where element != rhs[i] {
+							return false
 						}
 						return true
 					}
