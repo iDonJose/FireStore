@@ -12,6 +12,10 @@ import SwiftXtend
 
 extension DocumentSnapshot {
 
+	/// Maps document snapshots to the provided type.
+	///
+	/// - Parameter type: Output type
+	/// - Returns: Either the decoded type or an error if mapping failed
 	public func map<T: Identifiable & Decodable>(_ type: T.Type) -> Either<T?, NSError> where T.Identifier == String {
 
 		guard exists else { return .init(nil) }
@@ -33,6 +37,10 @@ extension DocumentSnapshot {
 
 	}
 
+	/// Maps document snapshots to the provided type and adds metadata.
+	///
+	/// - Parameter type: Output type
+	/// - Returns: Either the decoded type and metadata or an error if mapping failed
 	public func mapWithMetadata<T: Identifiable & Decodable>(_ type: T.Type) -> Either<(value: T, metadata: SnapshotMetadata)?, NSError> where T.Identifier == String {
 
 		guard exists else { return .init(nil) }

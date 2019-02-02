@@ -15,11 +15,17 @@ import SwiftXtend
 
 extension SignalProtocol where Value == DocumentSnapshot?, Error == NSError {
 
+	/// Maps document snapshots to a dictionary.
+	///
+	/// - Returns: A signal
 	public func mapData() -> Signal<(id: String, data: [String: Any]?)?, Error> {
 
 		return signal.map { $0 != nil ? ($0!.documentID, $0!.data()) : nil }
 	}
 
+	/// Maps document snapshots to the given type.
+	///
+	/// - Returns: A signal
 	public func map<T: Identifiable & Decodable>(_ type: T.Type)
 		-> Signal<T?, Error> where T.Identifier == String {
 
@@ -37,6 +43,9 @@ extension SignalProtocol where Value == DocumentSnapshot?, Error == NSError {
 				}
 	}
 
+	/// Maps document snapshots to the given type and adds metadata.
+	///
+	/// - Returns: A signal
 	public func mapWithMetadata<T: Identifiable & Decodable>(_ type: T.Type)
 		-> Signal<(value: T, metadata: SnapshotMetadata)?, Error> where T.Identifier == String {
 
@@ -59,6 +68,9 @@ extension SignalProtocol where Value == DocumentSnapshot?, Error == NSError {
 
 extension SignalProtocol where Value == QuerySnapshot?, Error == NSError {
 
+	/// Maps query snapshots to a dictionary of dictionaries.
+	///
+	/// - Returns: A signal
 	public func mapData() -> Signal<[String: [String: Any]], Error> {
 
 		return signal
@@ -74,6 +86,9 @@ extension SignalProtocol where Value == QuerySnapshot?, Error == NSError {
 			}
 	}
 
+	/// Maps query snapshots to an array of the given types.
+	///
+	/// - Returns: A signal
 	public func mapArray<T: Identifiable & Decodable>(of type: T.Type)
 		-> Signal<[T], Error> where T.Identifier == String {
 
@@ -111,6 +126,9 @@ extension SignalProtocol where Value == QuerySnapshot?, Error == NSError {
 				}
 	}
 
+	/// Maps query snapshots to a set of the given types.
+	///
+	/// - Returns: A signal
 	public func mapSet<T: Identifiable & Decodable>(of type: T.Type)
 		-> Signal<Set<T>, Error> where T.Identifier == String {
 
@@ -118,6 +136,9 @@ extension SignalProtocol where Value == QuerySnapshot?, Error == NSError {
 				.map { $0.toSet }
 	}
 
+	/// Maps query snapshots to an array of the given types and adds metadata.
+	///
+	/// - Returns: A signal
 	public func mapArrayWithMetadata<T: Identifiable & Decodable>(of type: T.Type)
 		-> Signal<(values: [T], metadatas: [SnapshotMetadata], queryMetadata: SnapshotMetadata?), Error> where T.Identifier == String {
 
@@ -163,6 +184,9 @@ extension SignalProtocol where Value == QuerySnapshot?, Error == NSError {
 				}
 	}
 
+	/// Maps query snapshots to an array of changes.
+	///
+	/// - Returns: A signal
 	public func mapChanges<T: Identifiable & Decodable>(of type: T.Type)
 		-> Signal<[Change<T>], Error> where T.Identifier == String {
 
