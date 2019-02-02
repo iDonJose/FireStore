@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		820553902204BAF800E3B867 /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8205538F2204BAF800E3B867 /* Firebase.swift */; };
+		820553932204BBF000E3B867 /* Firestore_Spec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820553922204BBF000E3B867 /* Firestore_Spec.swift */; };
+		820553952204BECD00E3B867 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820553942204BECD00E3B867 /* Error.swift */; };
+		820553992204C90600E3B867 /* GoogleService-Info.plist in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8205538D2204BABE00E3B867 /* GoogleService-Info.plist */; };
+		8205539F2204EA3600E3B867 /* SequenceCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8205539E2204EA3600E3B867 /* SequenceCondition.swift */; };
+		820553A12204EB3A00E3B867 /* Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820553A02204EB3A00E3B867 /* Equatable.swift */; };
+		820553A42205D17900E3B867 /* Firestore+Reactive_Spec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820553A32205D17900E3B867 /* Firestore+Reactive_Spec.swift */; };
+		820553A72205F53700E3B867 /* DocumentSnapshot_Spec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820553A62205F53700E3B867 /* DocumentSnapshot_Spec.swift */; };
+		820553A92205F70700E3B867 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820553A82205F70700E3B867 /* Car.swift */; };
+		8241330622064CD9004D8FE9 /* SignalProducerProtocol_Spec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8241330522064CD9004D8FE9 /* SignalProducerProtocol_Spec.swift */; };
 		828738DB21ECAD000011AAC5 /* DocumentSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828738DA21ECACFF0011AAC5 /* DocumentSnapshot.swift */; };
 		82879D7621D3F382005ACF38 /* Firestore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82879D7521D3F382005ACF38 /* Firestore.swift */; };
 		82879D7D21D40951005ACF38 /* DocumentPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82879D7C21D40951005ACF38 /* DocumentPath.swift */; };
@@ -19,33 +29,20 @@
 		82879D8E21D44004005ACF38 /* SignalProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82879D8D21D44004005ACF38 /* SignalProtocol.swift */; };
 		82879D9021D44587005ACF38 /* Change.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82879D8F21D44587005ACF38 /* Change.swift */; };
 		82879D9221D44CC6005ACF38 /* SignalProducerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82879D9121D44CC6005ACF38 /* SignalProducerProtocol.swift */; };
-		BF_513EB257483BD5DF082B115271F0D209 /* FireStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FR_27A0013361E43874EC10E67A0FF90B5C /* FireStore.framework */; };
-		BF_52F9BD78FA29204E4D58AB5C5FC187FA /* FireStore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FR_27A0013361E43874EC10E67A0FF90B5C /* FireStore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BF_BEC5D62790CC080186DF577C3CE90143 /* Header.h in Headers */ = {isa = PBXBuildFile; fileRef = FR_E51AEC1306B442D2B748C044C2B526AD /* Header.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D75C963FF615A271FCD0E29B /* Pods_FireStore_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D04542613B7E9519F726B61 /* Pods_FireStore_iOS.framework */; };
 		EB1145B86777318E15C60849 /* Pods_FireStore_Tests_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67EDD0A10C72F55AB9817266 /* Pods_FireStore_Tests_iOS.framework */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		CIP_B4E624488A1BC968150838F4DF2086E3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = P_6CD1C59E91EDC34994251AA842C3FBC3 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = NT_5A83AC23231CCC97ABC30284C3A8689D;
-			remoteInfo = "FireStore-iOS";
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXCopyFilesBuildPhase section */
-		CFBP_8D93AF02A9F1690A3B89E481F9511F59 /* Embed Frameworks */ = {
+		820553982204C8FC00E3B867 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
-			dstSubfolderSpec = 10;
+			dstSubfolderSpec = 7;
 			files = (
-				BF_52F9BD78FA29204E4D58AB5C5FC187FA /* FireStore.framework in Embed Frameworks */,
+				820553992204C90600E3B867 /* GoogleService-Info.plist in CopyFiles */,
 			);
-			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -54,6 +51,16 @@
 		01AD63A147287CC9884CC38C /* Pods-FireStore-Tests-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FireStore-Tests-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-FireStore-Tests-iOS/Pods-FireStore-Tests-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		67EDD0A10C72F55AB9817266 /* Pods_FireStore_Tests_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FireStore_Tests_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D04542613B7E9519F726B61 /* Pods_FireStore_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FireStore_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8205538D2204BABE00E3B867 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8205538F2204BAF800E3B867 /* Firebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
+		820553922204BBF000E3B867 /* Firestore_Spec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firestore_Spec.swift; sourceTree = "<group>"; };
+		820553942204BECD00E3B867 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		8205539E2204EA3600E3B867 /* SequenceCondition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequenceCondition.swift; sourceTree = "<group>"; };
+		820553A02204EB3A00E3B867 /* Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Equatable.swift; sourceTree = "<group>"; };
+		820553A32205D17900E3B867 /* Firestore+Reactive_Spec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Firestore+Reactive_Spec.swift"; sourceTree = "<group>"; };
+		820553A62205F53700E3B867 /* DocumentSnapshot_Spec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentSnapshot_Spec.swift; sourceTree = "<group>"; };
+		820553A82205F70700E3B867 /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
+		8241330522064CD9004D8FE9 /* SignalProducerProtocol_Spec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignalProducerProtocol_Spec.swift; sourceTree = "<group>"; };
 		828738DA21ECACFF0011AAC5 /* DocumentSnapshot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentSnapshot.swift; sourceTree = "<group>"; };
 		82879D7521D3F382005ACF38 /* Firestore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firestore.swift; sourceTree = "<group>"; };
 		82879D7C21D40951005ACF38 /* DocumentPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentPath.swift; sourceTree = "<group>"; };
@@ -97,7 +104,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF_513EB257483BD5DF082B115271F0D209 /* FireStore.framework in Frameworks */,
 				EB1145B86777318E15C60849 /* Pods_FireStore_Tests_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -114,6 +120,50 @@
 				9F99130F9FB9AE07A664D760 /* Pods-FireStore-iOS.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		8205538E2204BAE000E3B867 /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				820553A82205F70700E3B867 /* Car.swift */,
+				820553A02204EB3A00E3B867 /* Equatable.swift */,
+				820553942204BECD00E3B867 /* Error.swift */,
+				8205538F2204BAF800E3B867 /* Firebase.swift */,
+			);
+			path = Global;
+			sourceTree = "<group>";
+		};
+		820553912204BBD400E3B867 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				820553922204BBF000E3B867 /* Firestore_Spec.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		8205539D2204E9B800E3B867 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				8205539E2204EA3600E3B867 /* SequenceCondition.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		820553A22205C8AE00E3B867 /* Reactive */ = {
+			isa = PBXGroup;
+			children = (
+				820553A32205D17900E3B867 /* Firestore+Reactive_Spec.swift */,
+			);
+			path = Reactive;
+			sourceTree = "<group>";
+		};
+		820553A52205F51600E3B867 /* Mapping */ = {
+			isa = PBXGroup;
+			children = (
+				820553A62205F53700E3B867 /* DocumentSnapshot_Spec.swift */,
+				8241330522064CD9004D8FE9 /* SignalProducerProtocol_Spec.swift */,
+			);
+			path = Mapping;
 			sourceTree = "<group>";
 		};
 		827E104621D3D8000083394D /* Meta */ = {
@@ -213,6 +263,12 @@
 			isa = PBXGroup;
 			children = (
 				FR_2F2CE70CF1813FD59815B4197B6CE5EC /* Info.plist */,
+				8205538D2204BABE00E3B867 /* GoogleService-Info.plist */,
+				820553A52205F51600E3B867 /* Mapping */,
+				820553A22205C8AE00E3B867 /* Reactive */,
+				820553912204BBD400E3B867 /* Extensions */,
+				8205539D2204E9B800E3B867 /* Helpers */,
+				8205538E2204BAE000E3B867 /* Global */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -271,13 +327,12 @@
 				5031EB692B4EE4E9603C7A55 /* [CP] Check Pods Manifest.lock */,
 				SBP_3255694934D18639A762F39118E76F7D /* Sources */,
 				FBP_0FAEAF9D12DC7FD69AB96E98DFED4B65 /* Frameworks */,
-				CFBP_8D93AF02A9F1690A3B89E481F9511F59 /* Embed Frameworks */,
 				6F9F3329F66C5E2AB46FA06B /* [CP] Embed Pods Frameworks */,
+				820553982204C8FC00E3B867 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				TD_134741739CF1C6EF8E61A6051EF5E8EF /* PBXTargetDependency */,
 			);
 			name = "FireStore-Tests-iOS";
 			productName = "FireStore-Tests-iOS";
@@ -293,6 +348,9 @@
 				LastUpgradeCheck = 1000;
 				TargetAttributes = {
 					NT_5A83AC23231CCC97ABC30284C3A8689D = {
+						LastSwiftMigration = 1010;
+					};
+					NT_7249B0512135647148ED16C6A487FFA2 = {
 						LastSwiftMigration = 1010;
 					};
 				};
@@ -341,8 +399,6 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-FireStore-Tests-iOS/Pods-FireStore-Tests-iOS-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
-				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
@@ -356,11 +412,11 @@
 				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
+				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
@@ -374,6 +430,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -438,18 +496,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				820553902204BAF800E3B867 /* Firebase.swift in Sources */,
+				820553932204BBF000E3B867 /* Firestore_Spec.swift in Sources */,
+				820553A92205F70700E3B867 /* Car.swift in Sources */,
+				8205539F2204EA3600E3B867 /* SequenceCondition.swift in Sources */,
+				820553A42205D17900E3B867 /* Firestore+Reactive_Spec.swift in Sources */,
+				820553A12204EB3A00E3B867 /* Equatable.swift in Sources */,
+				820553A72205F53700E3B867 /* DocumentSnapshot_Spec.swift in Sources */,
+				820553952204BECD00E3B867 /* Error.swift in Sources */,
+				8241330622064CD9004D8FE9 /* SignalProducerProtocol_Spec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		TD_134741739CF1C6EF8E61A6051EF5E8EF /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = NT_5A83AC23231CCC97ABC30284C3A8689D /* FireStore-iOS */;
-			targetProxy = CIP_B4E624488A1BC968150838F4DF2086E3 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		BC_2597897CABC7A213796810DB72A05DC2 /* Debug */ = {
@@ -457,11 +516,93 @@
 			baseConfigurationReference = CF9BF955E1A4D6F96E026B0C /* Pods-FireStore-Tests-iOS.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/BoringSSL-GRPC\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseCore\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseFirestore\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/GoogleUtilities\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Nimble\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Protobuf\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Quick\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/ReactiveSwift\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Result\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SwiftXtend\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/gRPC\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/gRPC-C++\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/gRPC-Core\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/gRPC-ProtoRPC\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/gRPC-RxLibrary\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/leveldb-library\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/nanopb\"",
+					"\"${PODS_ROOT}/FirebaseAnalytics/Frameworks\"",
+					"\"${PODS_ROOT}/FirebaseInstanceID/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleAppMeasurement/Frameworks\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"${PODS_ROOT}/Firebase/CoreOnly/Sources",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/Firebase\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseAuthInterop\"",
+				);
 				INFOPLIST_FILE = Tests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-l\"c++\"",
+					"-l\"sqlite3\"",
+					"-l\"z\"",
+					"-framework",
+					"\"FirebaseCore\"",
+					"-framework",
+					"\"FirebaseFirestore\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"GRPCClient\"",
+					"-framework",
+					"\"GoogleUtilities\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"Nimble\"",
+					"-framework",
+					"\"ProtoRPC\"",
+					"-framework",
+					"\"Protobuf\"",
+					"-framework",
+					"\"Quick\"",
+					"-framework",
+					"\"ReactiveSwift\"",
+					"-framework",
+					"\"Result\"",
+					"-framework",
+					"\"RxLibrary\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"StoreKit\"",
+					"-framework",
+					"\"SwiftXtend\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"grpc\"",
+					"-framework",
+					"\"grpcpp\"",
+					"-framework",
+					"\"leveldb\"",
+					"-framework",
+					"\"nanopb\"",
+					"-framework",
+					"\"openssl_grpc\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.iDonJose.FireStore-Tests-iOS";
 				PRODUCT_NAME = "FireStore-Tests";
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -471,11 +612,92 @@
 			baseConfigurationReference = 01AD63A147287CC9884CC38C /* Pods-FireStore-Tests-iOS.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/BoringSSL-GRPC\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseCore\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseFirestore\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/GoogleUtilities\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Nimble\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Protobuf\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Quick\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/ReactiveSwift\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Result\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SwiftXtend\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/gRPC\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/gRPC-C++\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/gRPC-Core\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/gRPC-ProtoRPC\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/gRPC-RxLibrary\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/leveldb-library\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/nanopb\"",
+					"\"${PODS_ROOT}/FirebaseAnalytics/Frameworks\"",
+					"\"${PODS_ROOT}/FirebaseInstanceID/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleAppMeasurement/Frameworks\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"${PODS_ROOT}/Firebase/CoreOnly/Sources",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/Firebase\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseAuthInterop\"",
+				);
 				INFOPLIST_FILE = Tests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-l\"c++\"",
+					"-l\"sqlite3\"",
+					"-l\"z\"",
+					"-framework",
+					"\"FirebaseCore\"",
+					"-framework",
+					"\"FirebaseFirestore\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"GRPCClient\"",
+					"-framework",
+					"\"GoogleUtilities\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"Nimble\"",
+					"-framework",
+					"\"ProtoRPC\"",
+					"-framework",
+					"\"Protobuf\"",
+					"-framework",
+					"\"Quick\"",
+					"-framework",
+					"\"ReactiveSwift\"",
+					"-framework",
+					"\"Result\"",
+					"-framework",
+					"\"RxLibrary\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"StoreKit\"",
+					"-framework",
+					"\"SwiftXtend\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"grpc\"",
+					"-framework",
+					"\"grpcpp\"",
+					"-framework",
+					"\"leveldb\"",
+					"-framework",
+					"\"nanopb\"",
+					"-framework",
+					"\"openssl_grpc\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.iDonJose.FireStore-Tests-iOS";
 				PRODUCT_NAME = "FireStore-Tests";
 				SDKROOT = iphoneos;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
