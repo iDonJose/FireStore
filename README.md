@@ -37,9 +37,12 @@ Jump to the included Playground to get a quick hint of what this framework can d
 ### CocoaPods
 
 If you are using CocoaPods as a dependency manager, add this one line to your `Podfile`:
+> Don't forget to pods 'Firebase/Core' & 'Firebase/Firestore' !
 
 ```ruby
 pod 'FireStore'
+pod 'Firebase/Core', '~> 5.12.0'
+pod 'Firebase/Firestore', '~> 5.12.0'
 ```
 
 And update your pods with this command:
