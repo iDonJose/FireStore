@@ -20,18 +20,16 @@ public enum Change<T: Identifiable & Decodable> where T.Identifier == String {
 
 	// MARK: - Initialize
 
-	public init(change: DocumentChange,
-				ofType type: T.Type) throws {
+	public init?(change: DocumentChange,
+				 ofType type: T.Type) throws {
 
 		let document = change.document
 
-		let data = try JSONSerialization.data(withJSONObject: document.data())
+		let either = document.map(type)
 
-		let decoder = JSONDecoder()
-		decoder.dateDecodingStrategy = .millisecondsSince1970
-
-		var value = try decoder.decode(type, from: data)
-		value.id = document.documentID
+		if let error = either.b { throw error }
+		guard let _value = either.a,
+			let value = _value else { return nil }
 
 		switch change.type {
 		case .removed:

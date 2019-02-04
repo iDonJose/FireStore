@@ -205,8 +205,10 @@ extension SignalProtocol where Value == QuerySnapshot?, Error == NSError {
 
 					for documentChange in documentChanges {
 						do {
-							let change = try Change(change: documentChange, ofType: type)
-							changes.append(change)
+							if let change = try Change(change: documentChange, ofType: type) {
+
+								changes.append(change)
+							}
 						}
 						catch let error as NSError {
 							return .failure(error)
