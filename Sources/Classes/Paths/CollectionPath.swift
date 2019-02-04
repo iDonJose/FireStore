@@ -72,7 +72,8 @@ public struct CollectionPath: PathType {
 
 
 	public static func + (lhs: CollectionPath, rhs: String) -> DocumentPath {
-		return lhs.document(withId: rhs)
+		if rhs == "*" { return lhs.newDocument() }
+		else { return lhs.document(withId: rhs) }
 	}
 
 }
