@@ -1,6 +1,6 @@
 # FireStore
 
-Working with  [`Firebase Firestore`](https://firebase.google.com/docs/firestore/) become a whole lot easier with this framework !
+Working with [`Firebase Firestore`](https://firebase.google.com/docs/firestore/) become a whole lot easier with this framework !
 References, automatic data mapping and reactive extensions are provided to help you focus on builduing your app.
 <p align="center">
 	<a href="https://swift.org">
