@@ -168,7 +168,7 @@ store.reactive
 
 
 /*:
- ## `batchDelete(path:query:batchSize:source)`
+ ## `batchDelete(path:query:batchSize:source:)`
  Performs deletions in a single atomic operation.
  > See also `batchUpdate(batch:)`, `runTransaction(transaction:)`.
  */
